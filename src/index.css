@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .align-elements {
+    @apply w-[90%] max-w-[89rem] mx-auto px-1;
+  }
+  /* .primary-button {
+    @apply bg-indigo-700 hover:bg-indigo-900 text-zinc-50 focus:outline-none;
+  }
+  .secondary-button {
+    @apply bg-purple-700 text-slate-50 hover:bg-purple-900 focus:outline-none;
+  } */
+  .primary-button {
+    @apply bg-[#273757] hover:bg-[#1E2C45] text-zinc-50 focus:outline-none;
+  }
+  .secondary-button {
+    @apply bg-[#A68019] text-slate-50 hover:bg-[#8C6E15] focus:outline-none;
+  }
+  .select-align-center {
+    text-align: center;
+    text-align-last: center;
+  }
+  .inputCheckbox {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+  }
+  .inputCheckbox::before {
+    content: '';
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #2563eb;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+  .inputCheckbox:checked::before {
+    transform: scale(1);
+  }
+}
