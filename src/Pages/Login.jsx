@@ -1,7 +1,9 @@
 import { Formik, Form } from 'formik'
 import FormIkInput from '../Components/FormIk/FormIkInput'
-import { loginValidations } from '../Utils'
+import { customFetch, loginValidations } from '../Utils'
 import { FcGoogle } from 'react-icons/fc'
+import { toast } from 'react-toastify'
+
 const Login = () => {
   return (
     <section className='flex flex-col justify-center h-screen w-[90%] max-w-[42rem] mx-auto'>
@@ -10,8 +12,21 @@ const Login = () => {
       </h2>
       <Formik
         initialValues={{ email: '', password: '' }}
-        onSubmit={(values) => {
-          console.log(values)
+        onSubmit={async (values) => {
+          try {
+            const response = await customFetch.post('auth/login', values)
+            if (response.status === 200) {
+              const user = response.data.user
+              localStorage.setItem('user', JSON.stringify(user))
+              toast.success(`Welcome ${user.name}!`)
+              setTimeout(() => {
+                window.location.href = '/Orders'
+              }, 3000)
+            }
+          } catch (error) {
+            const message = error.response.data || 'Something went wrong'
+            toast.error(message)
+          }
         }}
         validationSchema={loginValidations}
       >
