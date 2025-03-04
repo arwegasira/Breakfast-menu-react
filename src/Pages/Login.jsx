@@ -55,7 +55,7 @@ const Login = () => {
                   disabled={isSubmitting}
                   className='btn primary-button w-full'
                 >
-                  Login
+                  {isSubmitting ? 'Submitting...' : 'Login'}
                 </button>
               </div>
             </Form>
@@ -63,7 +63,14 @@ const Login = () => {
         }}
       </Formik>
       <div className='mt-6'>
-        <button type='button' className='flex justify-center w-full gap-4 btn'>
+        <button
+          type='button'
+          className='flex justify-center w-full gap-4 btn'
+          onClick={() => {
+            // window.location.href = 'http://localhost:3000/api/v1/auth/google'
+            window.open('http://localhost:3000/api/v1/auth/google', '_self')
+          }}
+        >
           <FcGoogle className='text-2xl md:text-3xl' />
           <span className=' text-md md:text-lg'>Sign with Google</span>
         </button>
