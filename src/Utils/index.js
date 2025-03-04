@@ -4,6 +4,7 @@ const environment = import.meta.env.VITE_ENVIRONMENT
 export const customFetch = axios.create({
   // baseURL: environment === 'dev' ? 'http://localhost:3000' : '',
   baseURL: 'http://localhost:3000/api/v1',
+  withCredentials: true,
 })
 
 export const roomValidations = Yup.object({
