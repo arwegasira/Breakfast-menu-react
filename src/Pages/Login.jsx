@@ -1,6 +1,6 @@
 import { Formik, Form } from 'formik'
 import FormIkInput from '../Components/FormIk/FormIkInput'
-import { customFetch, loginValidations } from '../Utils'
+import { customFetch, loginValidations, serverUrl } from '../Utils'
 import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'react-toastify'
 
@@ -67,8 +67,7 @@ const Login = () => {
           type='button'
           className='flex justify-center w-full gap-4 btn'
           onClick={() => {
-            // window.location.href = 'http://localhost:3000/api/v1/auth/google'
-            window.open('http://localhost:3000/api/v1/auth/google', '_self')
+            window.open(`${serverUrl}/auth/google`, '_self')
           }}
         >
           <FcGoogle className='text-2xl md:text-3xl' />

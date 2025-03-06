@@ -1,9 +1,11 @@
 import axios from 'axios'
 import * as Yup from 'yup'
 const environment = import.meta.env.VITE_ENVIRONMENT
+const serverDev = import.meta.env.VITE_SERVER_URL_DEV
+const serverPro = import.meta.env.VITE_SERVER_URL_PRO
+export const serverUrl = environment === 'dev' ? serverDev : serverPro
 export const customFetch = axios.create({
-  // baseURL: environment === 'dev' ? 'http://localhost:3000' : '',
-  baseURL: 'http://localhost:3000/api/v1',
+  baseURL: serverUrl,
   withCredentials: true,
 })
 
