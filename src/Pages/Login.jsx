@@ -4,6 +4,16 @@ import { customFetch, loginValidations, serverUrl } from '../Utils'
 import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'react-toastify'
 
+export const loader = async ({ request }) => {
+  const url = new URL(request.url)
+  const params = Object.fromEntries(url.searchParams)
+  // if google sign in return an error display a toast message
+  if (params.error) {
+    toast.error(params.error)
+    history.replaceState({}, null, 'login')
+  }
+  return null
+}
 const Login = () => {
   return (
     <section className='flex flex-col justify-center h-screen w-[90%] max-w-[42rem] mx-auto'>

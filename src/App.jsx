@@ -22,6 +22,7 @@ import { loader as breakfastItemsLoader } from './Pages/BreakfastItems'
 import { loader as HomeLoader } from './Pages/Home'
 import { loader as yourOrderLoader } from './Pages/YourOrder'
 import { loader as orderLoader } from './Pages/Order'
+import { loader as loginLoader } from './Pages/Login'
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,7 @@ const router = createBrowserRouter([
     path: 'login',
     element: <Login></Login>,
     errorElement: <ErrorElement></ErrorElement>,
+    loader: loginLoader,
   },
 ])
 function App() {
