@@ -11,6 +11,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from '../../assets/rohiLogo.png'
 import NavLinks from './NavLinks'
 import { useNavigate } from 'react-router-dom'
+import { customFetch } from '../../Utils'
 
 const navigation = [
   { name: 'Dashboard', href: '/' },
@@ -21,6 +22,10 @@ const navigation = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+const handleLogout = async () => {
+  await customFetch.post('/auth/logout')
 }
 
 export default function Navbar() {
@@ -111,8 +116,9 @@ export default function Navbar() {
                 </MenuItem>
                 <MenuItem>
                   <a
-                    href='#'
+                    href='login'
                     className='block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100'
+                    onClick={handleLogout}
                   >
                     Sign out
                   </a>
