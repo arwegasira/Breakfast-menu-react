@@ -23,6 +23,7 @@ import { loader as HomeLoader } from './Pages/Home'
 import { loader as yourOrderLoader } from './Pages/YourOrder'
 import { loader as orderLoader } from './Pages/Order'
 import { loader as loginLoader } from './Pages/Login'
+import { loader as landingLoader } from './Pages/Landing'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing></Landing>,
+        loader: landingLoader,
       },
 
       {
