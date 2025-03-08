@@ -25,6 +25,7 @@ function classNames(...classes) {
 }
 
 const handleLogout = async () => {
+  localStorage.removeItem('user')
   await customFetch.post('/auth/logout')
 }
 
