@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import { redirect, useLoaderData } from 'react-router-dom'
 import { customFetch } from '../Utils'
 import { AddNewRoom, Modal, Pagination, Search } from '../Components'
 import SearchForm from '../Components/Room/SearchForm'
@@ -21,7 +21,12 @@ export const loader =
     const url = new URL(request.url)
     const params = Object.fromEntries(url.searchParams)
 
-    const response = await queryClient.ensureQueryData(getRoomsQuery(params))
+    try {
+      const response = await queryClient.ensureQueryData(getRoomsQuery(params))
+    } catch (error) {
+      // un-authenticated
+      if (error.response.status === 401) return redirect('/login')
+    }
 
     return {
       meta: response.data.meta,
