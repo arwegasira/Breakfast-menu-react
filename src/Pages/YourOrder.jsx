@@ -9,7 +9,7 @@ import { useState } from 'react'
 const getOrderItemsQuery = () => {
   return {
     queryKey: ['orderItems'],
-    queryFn: async () => customFetch.get(`/breakfastItems/availableItems`),
+    queryFn: async () => customFetch.get(`/your-order/orderItems-selection`),
   }
 }
 export const loader = (queryClient) => async () => {
