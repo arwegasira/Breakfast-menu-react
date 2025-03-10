@@ -40,7 +40,7 @@ const YourOrder = () => {
     let items = Object.values(orderItems)
     items = !Array.prototype.flat ? flattenPolyFill(items) : items.flat()
     try {
-      await customFetch.post('/order', {
+      await customFetch.post('/your-order/create-order', {
         room: clientRoom,
         items: items,
       })
