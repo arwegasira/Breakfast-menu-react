@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 const roomQuery = () => {
   return {
     queryKey: ['rooms'],
-    queryFn: () => customFetch.get('rooms'),
+    queryFn: () => customFetch.get('/home/homeRoom-selection'),
   }
 }
 export const loader = (queryClient) => async () => {
