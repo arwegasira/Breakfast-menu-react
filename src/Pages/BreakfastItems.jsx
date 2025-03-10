@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, redirect } from 'react-router-dom'
 import { customFetch } from '../Utils'
 import { BreakfastItemList, Search } from '../Components'
 import SearchForm from '../Components/BreakfastItems/SearchForm'
@@ -17,9 +17,13 @@ export const loader =
     const url = new URL(request.url)
     const params = Object.fromEntries(url.searchParams)
 
-    const response = await queryClient.ensureQueryData(
-      getBreakfastItems(params)
-    )
+    try {
+      const response = await queryClient.ensureQueryData(
+        getBreakfastItems(params)
+      )
+    } catch (error) {
+      if (error.response.status === 401) return redirect('/login')
+    }
 
     return {
       breakfastItems: response.data.items,
