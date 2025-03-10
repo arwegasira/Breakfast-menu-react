@@ -21,13 +21,12 @@ export const loader =
       const response = await queryClient.ensureQueryData(
         getBreakfastItems(params)
       )
+      return {
+        breakfastItems: response.data.items,
+        params: params,
+      }
     } catch (error) {
       if (error.response.status === 401) return redirect('/login')
-    }
-
-    return {
-      breakfastItems: response.data.items,
-      params: params,
     }
   }
 const BreakfastItems = () => {

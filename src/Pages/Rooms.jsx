@@ -23,16 +23,15 @@ export const loader =
 
     try {
       const response = await queryClient.ensureQueryData(getRoomsQuery(params))
+      return {
+        meta: response.data.meta,
+        rooms: response.data.rooms,
+        params,
+        queryClient,
+      }
     } catch (error) {
       // un-authenticated
       if (error.response.status === 401) return redirect('/login')
-    }
-
-    return {
-      meta: response.data.meta,
-      rooms: response.data.rooms,
-      params,
-      queryClient,
     }
   }
 const Rooms = () => {
