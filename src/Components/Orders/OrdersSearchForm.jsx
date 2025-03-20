@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import FormInput from '../Util/FormInput'
 import FormSelect from '../Util/FormSelect'
 
@@ -9,7 +9,7 @@ const OrdersSearchForm = () => {
   } = useLoaderData()
   console.log(orderStatus)
   return (
-    <form className='flex flex-col gap-2 lg:flex-row lg:gap-4 lg:justify-center'>
+    <form className='flex flex-col gap-2 lg:flex-row lg:gap-4 '>
       <FormSelect
         label='Status'
         name='orderStatus'
@@ -35,10 +35,13 @@ const OrdersSearchForm = () => {
         size='input-sm'
         defaultValue={room}
       ></FormInput>
-      <div className='mt-4 lg:flex lg:flex-col  lg:flex-grow lg:justify-center lg:mt-8'>
+      <div className='mt-2 flex flex-col gap-4 lg:flex-row lg:mt-8'>
         <button type='submit' className='btn btn-sm primary-button w-[100%]'>
           Search
         </button>
+        <Link to='/orders' className='btn btn-sm secondary-button w-[100%]'>
+          Clear Filters
+        </Link>
       </div>
     </form>
   )
