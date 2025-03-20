@@ -52,7 +52,7 @@ const Order = () => {
 
   return (
     <>
-      <Search>
+      <Search sectionPadding='pt-6 pb-8 px-10' maxWidth='max-w-[65rem]'>
         <OrderSearchForm></OrderSearchForm>
       </Search>
       <OrderList
