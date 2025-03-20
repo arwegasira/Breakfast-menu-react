@@ -1,8 +1,7 @@
 import { Link, useLoaderData } from 'react-router-dom'
 import FormInput from '../Util/FormInput'
 import FormSelect from '../Util/FormSelect'
-
-const orderStatusList = ['', 'Pending', 'Approved', 'Canceled', 'Completed']
+const orderStatusList = ['', 'Pending', 'Approved', 'Cancelled', 'Completed']
 const OrdersSearchForm = () => {
   const {
     params: { orderStatus, orderNumber, room },
@@ -22,7 +21,7 @@ const OrdersSearchForm = () => {
         type='text'
         name='orderNumber'
         placeholder='Order Number'
-        id='room'
+        id='orderNumber'
         size='input-sm'
         defaultValue={orderNumber}
       ></FormInput>
