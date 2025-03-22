@@ -47,7 +47,7 @@ const OrderList = forwardRef(
                       orderItems,
                     } = order
                     return (
-                      <tr key={_id}>
+                      <tr key={_id} className='hover cursor-pointer'>
                         <td>{orderNumber}</td>
                         <td>{roomDetails[0].name}</td>
                         <td className='flex justify-center'>
