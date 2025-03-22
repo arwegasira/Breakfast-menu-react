@@ -1,4 +1,4 @@
-import { redirect } from 'react-router-dom'
+import { redirect, useNavigate } from 'react-router-dom'
 import Loading from '../Util/Loading'
 import { forwardRef } from 'react'
 
@@ -10,6 +10,7 @@ const statusColors = {
 }
 const OrderList = forwardRef(
   ({ data, error, isFetchingNextPage, status, inView }, ref) => {
+    const navigate = useNavigate()
     if (status === 'pending') return <Loading></Loading>
     if (error) {
       if (error.status === 401) return (window.location.href = '/login')
@@ -47,7 +48,11 @@ const OrderList = forwardRef(
                       orderItems,
                     } = order
                     return (
-                      <tr key={_id} className='hover cursor-pointer'>
+                      <tr
+                        key={_id}
+                        className='hover cursor-pointer'
+                        onClick={() => navigate(`/Orders/${_id}`)}
+                      >
                         <td>{orderNumber}</td>
                         <td>{roomDetails[0].name}</td>
                         <td className='flex justify-center'>

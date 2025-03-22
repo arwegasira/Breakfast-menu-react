@@ -6,7 +6,6 @@ const OrdersSearchForm = () => {
   const {
     params: { orderStatus, orderNumber, room },
   } = useLoaderData()
-  console.log(orderStatus)
   return (
     <form className='flex flex-col gap-2 lg:flex-row lg:gap-4  '>
       <FormSelect
