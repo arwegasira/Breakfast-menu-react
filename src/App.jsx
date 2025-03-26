@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         path: 'Orders/:id',
         element: <SingleOrder></SingleOrder>,
         errorElement: <ErrorElement></ErrorElement>,
-        loader: SingleOrderLoader,
+        loader: SingleOrderLoader(queryClient),
       },
     ],
   },
