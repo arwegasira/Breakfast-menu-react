@@ -21,11 +21,21 @@ export const loader =
       if (error.response.status === 401) return redirect('/login')
     }
   }
+
+const updateOrderStatus = async ({ id, status }) => {
+  await customFetch.patch(`/order/${id}`, { status })
+  window.location.reload()
+}
 const SingleOrder = () => {
   const { order } = useLoaderData()
   const orderStatusList = ['Pending', 'Approved', 'Cancelled', 'Completed']
-  const { orderNumber, roomDetails, status: orderStatus, orderItems } = order
-  console.log(order)
+  const {
+    orderNumber,
+    roomDetails,
+    status: orderStatus,
+    orderItems,
+    _id,
+  } = order
   return (
     <>
       <section className='mt-12 shadow rounded-lg py-8 px-4 max-w-[60rem] mx-auto border'>
@@ -42,6 +52,13 @@ const SingleOrder = () => {
           <select
             className='select select-bordered select-sm block md:self-start md:font-medium'
             defaultValue={orderStatus}
+            onChange={async (e) => {
+              try {
+                await updateOrderStatus({ id: _id, status: e.target.value })
+              } catch (error) {
+                console.log(error)
+              }
+            }}
           >
             {orderStatusList.map((status, idx) => {
               return <option key={idx}>{status}</option>
