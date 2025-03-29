@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, Link } from 'react-router-dom'
 import { customFetch } from '../Utils'
 
 const singleOderQuery = (id) => {
@@ -38,7 +38,16 @@ const SingleOrder = () => {
   } = order
   return (
     <>
-      <section className='mt-12 shadow rounded-lg py-8 px-4 max-w-[60rem] mx-auto border'>
+      <section className='max-w-[60rem] mx-auto mt-12'>
+        <Link
+          to='/Orders'
+          className='btn  primary-button text-sm uppercase cursor-pointer'
+        >
+          Return to Orders
+        </Link>
+      </section>
+
+      <section className='mt-4 shadow rounded-lg py-8 px-4 max-w-[60rem] mx-auto border'>
         <div className='pb-4 border-b border-zinc-300 flex flex-col gap-4 sm:flex-row sm:justify-between '>
           <span className='block text-sm px-1 font-normal md:text-base'>
             {orderNumber}
