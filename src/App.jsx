@@ -14,6 +14,7 @@ import {
   YourOrder,
   Orders,
   SingleOrder,
+  Dashboard,
 } from './Pages'
 
 const queryClient = new QueryClient()
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing></Landing>,
         loader: landingLoader,
+      },
+      {
+        path: 'Dashboard',
+        element: <Dashboard></Dashboard>,
+        errorElement: <ErrorElement></ErrorElement>,
       },
 
       {
