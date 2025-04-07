@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import { customFetch } from '../../Utils'
 
 const navigation = [
-  { name: 'Dashboard', href: '/' },
+  { name: 'Dashboard', href: '/Dashboard' },
   { name: 'Orders', href: 'orders' },
   { name: 'Menu Items', href: 'breakfastItems' },
   { name: 'Rooms', href: 'rooms' },
