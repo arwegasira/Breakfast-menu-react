@@ -28,6 +28,9 @@ const handleLogout = async () => {
   localStorage.removeItem('user')
   await customFetch.post('/auth/logout')
 }
+let user = JSON.parse(localStorage.getItem('user'))
+let username = user?.name[0]
+let role = user.role
 
 export default function Navbar() {
   const navigate = useNavigate()
@@ -88,11 +91,14 @@ export default function Navbar() {
                 <MenuButton className='relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
                   <span className='absolute -inset-1.5' />
                   <span className='sr-only'>Open user menu</span>
-                  <img
+                  {/* <img
                     alt=''
                     src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
                     className='h-8 w-8 rounded-full'
-                  />
+                  /> */}
+                  <span className='h-8 w-8 rounded-full flex items-center justify-center text-white text-center'>
+                    {username}
+                  </span>
                 </MenuButton>
               </div>
               <MenuItems
@@ -107,14 +113,17 @@ export default function Navbar() {
                     Your Profile
                   </a>
                 </MenuItem>
-                <MenuItem>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100'
-                  >
-                    Settings
-                  </a>
-                </MenuItem>
+                {role === 'admin' ? (
+                  <MenuItem>
+                    <a
+                      href='#'
+                      className='block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100'
+                    >
+                      Settings
+                    </a>
+                  </MenuItem>
+                ) : null}
+
                 <MenuItem>
                   <a
                     href='login'
