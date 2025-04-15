@@ -12,3 +12,4 @@ export { default as MultiPurposeFormSelect } from './Util/MultiPurporseSelectInp
 export { default as YourOrderFormItem } from './Orders/YourOrderFormItem'
 export { default as OrderSearchForm } from './Orders/OrdersSearchForm'
 export { default as OrderList } from './Orders/OrderList'
+export { default as RechartBar } from './Util/RechartBar'

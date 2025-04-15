@@ -27,6 +27,7 @@ import { loader as orderLoader } from './Pages/Order'
 import { loader as loginLoader } from './Pages/Login'
 import { loader as landingLoader } from './Pages/Landing'
 import { loader as SingleOrderLoader } from './Pages/SingleOrder'
+import { loader as dashboardLoader } from './Pages/Dashboard'
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
         path: 'Dashboard',
         element: <Dashboard></Dashboard>,
         errorElement: <ErrorElement></ErrorElement>,
+        loader: dashboardLoader(queryClient),
       },
 
       {
