@@ -80,7 +80,7 @@ const router = createBrowserRouter([
         path: 'users',
         element: <Users></Users>,
         errorElement: <ErrorElement></ErrorElement>,
-        loader: usersLoader,
+        loader: usersLoader(queryClient),
       },
     ],
   },
