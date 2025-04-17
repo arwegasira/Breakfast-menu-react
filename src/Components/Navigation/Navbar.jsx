@@ -116,10 +116,10 @@ export default function Navbar() {
                 {role === 'admin' ? (
                   <MenuItem>
                     <a
-                      href='#'
+                      href='/users'
                       className='block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100'
                     >
-                      Settings
+                      Users
                     </a>
                   </MenuItem>
                 ) : null}

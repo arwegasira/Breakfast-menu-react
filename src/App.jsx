@@ -15,6 +15,7 @@ import {
   Orders,
   SingleOrder,
   Dashboard,
+  Users,
 } from './Pages'
 
 const queryClient = new QueryClient()
@@ -28,6 +29,7 @@ import { loader as loginLoader } from './Pages/Login'
 import { loader as landingLoader } from './Pages/Landing'
 import { loader as SingleOrderLoader } from './Pages/SingleOrder'
 import { loader as dashboardLoader } from './Pages/Dashboard'
+import { loader as usersLoader } from './Pages/users'
 
 const router = createBrowserRouter([
   {
@@ -73,6 +75,12 @@ const router = createBrowserRouter([
         element: <SingleOrder></SingleOrder>,
         errorElement: <ErrorElement></ErrorElement>,
         loader: SingleOrderLoader(queryClient),
+      },
+      {
+        path: 'users',
+        element: <Users></Users>,
+        errorElement: <ErrorElement></ErrorElement>,
+        loader: usersLoader,
       },
     ],
   },
