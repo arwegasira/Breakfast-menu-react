@@ -40,17 +40,6 @@ const UsersSearchForm = () => {
       <Link className='btn btn-sm secondary-button mt-4 lg:mt-8 flex-grow'>
         Clear Filter
       </Link>
-      {/* <div className='flex flex-col gap-4 lg:flex-row bg-red-100 lg:items-center lg:mt-6'>
-        <button
-          type='submit'
-          className='btn btn-sm primary-button w-full lg:w-[90%]'
-        >
-          Search
-        </button>
-        <Link className='btn btn-sm secondary-button w-full lg:w-[90%]'>
-          Clear Filter
-        </Link>
-      </div> */}
     </form>
   )
 }
