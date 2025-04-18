@@ -1,3 +1,4 @@
+import { Search, UserSearchForm } from '../Components'
 import { customFetch } from '../Utils'
 import { redirect, useLoaderData } from 'react-router-dom'
 
@@ -37,6 +38,15 @@ export const loader =
     }
   }
 const users = () => {
-  return <div>users</div>
+  //Modal to add new user
+  // user list
+  //pagination
+  return (
+    <>
+      <Search maxWidth='max-w-[65rem]' sectionPadding='pt-6 pb-8 px-8'>
+        <UserSearchForm></UserSearchForm>
+      </Search>
+    </>
+  )
 }
 export default users
