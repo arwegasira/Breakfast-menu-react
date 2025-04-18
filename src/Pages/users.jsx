@@ -1,4 +1,4 @@
-import { Search, UserSearchForm } from '../Components'
+import { Pagination, Search, UserSearchForm, UsersList } from '../Components'
 import { customFetch } from '../Utils'
 import { redirect, useLoaderData } from 'react-router-dom'
 
@@ -46,6 +46,8 @@ const users = () => {
       <Search maxWidth='max-w-[65rem]' sectionPadding='pt-6 pb-8 px-8'>
         <UserSearchForm></UserSearchForm>
       </Search>
+      <UsersList></UsersList>
+      <Pagination></Pagination>
     </>
   )
 }
