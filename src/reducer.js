@@ -7,9 +7,12 @@ import {
 } from './actions'
 const reducer = (state, action) => {
   if (action.type === OPEN_MODAL) {
-    const modal = document.querySelector('.modal')
-    modal.showModal()
-    return { ...state }
+    return { ...state, isModalOpen: true }
+  }
+  if (action.type === CLOSE_MODAL) {
+    // const modal = document.querySelector('.modal')
+    // modal.close()
+    return { ...state, isModalOpen: false }
   }
   if (action.type === POPULATE_FORM_FIELDS) {
     const {
