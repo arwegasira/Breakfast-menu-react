@@ -40,7 +40,6 @@ const tHead = ({ openModal, populateFormFields }) => {
   )
 }
 const RoomList = () => {
-  console.log('render')
   const {
     rooms,
     params: { search, page },
@@ -51,6 +50,7 @@ const RoomList = () => {
     mutationFn: deleteRoom,
     onSuccess: () => {
       queryClient.invalidateQueries()
+      window.location.reload()
     },
   })
 
@@ -71,7 +71,7 @@ const RoomList = () => {
                   <td className=' flex justify-between '>
                     <button
                       type='button'
-                      className='btn btn-sm btn-ghost p-1'
+                      className='btn btn-sm btn-ghost p-1 focus:outline-none'
                       onClick={() => {
                         openModal()
                         populateFormFields({
