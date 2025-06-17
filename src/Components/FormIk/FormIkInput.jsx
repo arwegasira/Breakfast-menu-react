@@ -1,7 +1,6 @@
 import { useField } from 'formik'
 const FormIkInput = ({ label, ...props }) => {
   const [field, meta] = useField(props)
-
   return (
     <label className='form-control '>
       <div className='label'>
