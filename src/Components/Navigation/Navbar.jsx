@@ -30,7 +30,7 @@ const handleLogout = async () => {
 }
 let user = JSON.parse(localStorage.getItem('user'))
 let username = user?.name[0]
-let role = user.role
+let role = user?.role
 
 export default function Navbar() {
   const navigate = useNavigate()
